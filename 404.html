@@ -31,7 +31,7 @@
         href="https://gist.github.com/">Github Gist</a>.<br>Paste URL of the file you would like to embed.
       You can also simply add "em" before
       "github.com" in address bar.</p> -->
-    <form id="goForm" class="mb-4" style="display: none;">
+    <form id="goForm" style="display: none;">
       <div class="input-group input-group-lg mb-3">
         <input type="text" name="target" id="target" class="form-control" required>
         <select id="style" name="style" class="custom-select col-3 col-md-2">
@@ -141,8 +141,8 @@
         <label class="custom-control-label" for="showFileMeta">File metadata</label>
       </div>
     </form>
-    <label for="embededCode">Code to embed</label>
-    <div class="input-group input-group-lg mb-3">
+    <!-- <label for="embededCode">Code to embed</label> -->
+    <div style="display: none;">
       <input type="text" id="embededCode" class="form-control" onclick="this.select();">
       <div class="input-group-append">
         <!-- Not use <button> here, see https://getbootstrap.com/docs/4.4/components/popovers/#dismiss-on-next-click -->
@@ -150,9 +150,9 @@
           data-trigger="focus" data-placement="bottom" data-content="Copied!">Copy</a>
       </div>
     </div>
-    <label for="previewArea">Preview</label>
+    <!-- <label for="previewArea">Preview</label> -->
     <div id="previewArea" class="py-1">
-      <div class="text-center m-3">
+      <!-- <div class="text-center m-3">
         <svg width="64" height="64" viewBox="0 0 522.468 522.469">
           <path
             d="M325.762,70.513l-17.706-4.854c-2.279-0.76-4.524-0.521-6.707,0.715c-2.19,1.237-3.669,3.094-4.429,5.568L190.426,440.53    c-0.76,2.475-0.522,4.809,0.715,6.995c1.237,2.19,3.09,3.665,5.568,4.425l17.701,4.856c2.284,0.766,4.521,0.526,6.71-0.712    c2.19-1.243,3.666-3.094,4.425-5.564L332.042,81.936c0.759-2.474,0.523-4.808-0.716-6.999    C330.088,72.747,328.237,71.272,325.762,70.513z"
@@ -164,7 +164,7 @@
             d="M519.614,254.663L386.567,121.619c-1.902-1.902-4.093-2.857-6.563-2.857c-2.478,0-4.661,0.955-6.57,2.857l-14.271,14.275    c-1.902,1.903-2.851,4.09-2.851,6.567s0.948,4.665,2.851,6.567l112.206,112.204L359.163,373.442    c-1.902,1.902-2.851,4.093-2.851,6.563c0,2.478,0.948,4.668,2.851,6.57l14.271,14.268c1.909,1.906,4.093,2.854,6.57,2.854    c2.471,0,4.661-0.951,6.563-2.854L519.614,267.8c1.903-1.902,2.854-4.096,2.854-6.57    C522.468,258.755,521.517,256.565,519.614,254.663z"
             fill="#888888" />
         </svg>
-      </div>
+      </div> -->
     </div>
   </main>
   <!-- <a target="_blank" href="https://github.com/yusanshi/embed_like_gist" class="github-corner"
@@ -258,7 +258,8 @@
         $("#target").attr("placeholder", "https://github.com/user/repository/blob/branch/src/hello.cpp");
       } else {
         // 404 triggered. Fill in target and simulate clicking
-        $("#target").val("https://github.com" + window.location.pathname);
+        const windowpath = window.location.pathname.replace('tdcem','');
+        $("#target").val("https://github.com" + windowpath );
         $("#goForm").submit();
       }
 
