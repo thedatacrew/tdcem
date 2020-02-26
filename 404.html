@@ -33,8 +33,8 @@
       "github.com" in address bar.</p> -->
     <form id="goForm">
       <div class="input-group input-group-lg mb-3">
-        <input type="text" name="target" id="target" class="form-control" required>
-        <select id="style" name="style" class="custom-select col-3 col-md-2">
+        <input type="text" hidden name="target" id="target" class="form-control" required>
+        <select id="style" hidden name="style" class="custom-select col-3 col-md-2">
           <option value="a11y-dark">a11y-dark</option>
           <option value="a11y-light">a11y-light</option>
           <option value="agate">agate</option>
@@ -70,7 +70,7 @@
           <option value="color-brewer">color-brewer</option>
           <option value="darcula">darcula</option>
           <option value="dark">dark</option>
-          <option value="default" selected>default</option>
+          <option value="default">default</option>
           <option value="docco">docco</option>
           <option value="dracula">dracula</option>
           <option value="far">far</option>
@@ -111,7 +111,7 @@
           <option value="shades-of-purple">shades-of-purple</option>
           <option value="solarized-dark">solarized-dark</option>
           <option value="solarized-light">solarized-light</option>
-          <option value="sunburst">sunburst</option>
+          <option value="sunburst" selected>sunburst</option>
           <option value="tomorrow">tomorrow</option>
           <option value="tomorrow-night">tomorrow-night</option>
           <option value="tomorrow-night-blue">tomorrow-night-blue</option>
@@ -259,7 +259,7 @@
       } else {
         // 404 triggered. Fill in target and simulate clicking
         const windowpath = window.location.pathname.replace('/tdcem','');
-        console.log('window path : ', windowpath);
+        // console.log('window path : ', windowpath);
         $("#target").val("https://github.com" + windowpath );
         $("#goForm").submit();
       }
