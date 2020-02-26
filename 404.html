@@ -31,7 +31,7 @@
         href="https://gist.github.com/">Github Gist</a>.<br>Paste URL of the file you would like to embed.
       You can also simply add "em" before
       "github.com" in address bar.</p> -->
-    <form id="goForm" style="display: none;">
+    <form id="goForm">
       <div class="input-group input-group-lg mb-3">
         <input type="text" name="target" id="target" class="form-control" required>
         <select id="style" name="style" class="custom-select col-3 col-md-2">
@@ -258,7 +258,7 @@
         $("#target").attr("placeholder", "https://github.com/user/repository/blob/branch/src/hello.cpp");
       } else {
         // 404 triggered. Fill in target and simulate clicking
-        const windowpath = window.location.pathname.replace('tdcem','');
+        const windowpath = window.location.pathname.replace('/tdcem','');
         console.log('window path : ', windowpath);
         $("#target").val("https://github.com" + windowpath );
         $("#goForm").submit();
